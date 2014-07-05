@@ -30,10 +30,10 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :ok }
+        format.json { render json: { status: 'success' message: @user }, status: :ok }
       else
         format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json { render json: { status: 'error' message: @user.errors.full_messages.join ', ' }, status: :unprocessable_entity }
       end
     end
   end

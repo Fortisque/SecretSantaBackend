@@ -69,8 +69,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      p params
-      p ActionController::Parameters.new( JSON.parse(request.body.read) )
       params.require(:user).permit(:name, :phone, :email, :password, :password_confirmation)
     end
 end

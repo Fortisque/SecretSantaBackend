@@ -33,7 +33,7 @@ class UsersController < ApplicationController
         format.json { render json: { status: 'success', message: @user }, status: :ok }
       else
         format.html { render :new }
-        format.json { render json: { status: 'error', message: @user.errors.full_messages.join ', ' }, status: :unprocessable_entity }
+        format.json { render json: { status: 'error', message: @user.errors.full_messages.join(', ') }, status: :unprocessable_entity }
       end
     end
   end
